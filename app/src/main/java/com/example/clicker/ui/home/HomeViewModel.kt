@@ -26,6 +26,9 @@ class HomeViewModel : ViewModel() {
 
     private var startTime = 0L
     private var running = false
+    val isRunning: Boolean
+        get() = running
+
     private var targetTime = 0.0
     private var score = 0
     private var bestScore = 0
