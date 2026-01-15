@@ -26,16 +26,14 @@ class HomeFragment : Fragment() {
 
         viewModel.generateTarget()
 
-        binding.startButton.setOnClickListener {
-            viewModel.start()
-            binding.startButton.isEnabled = false
-            binding.stopButton.isEnabled = true
-        }
-
-        binding.stopButton.setOnClickListener {
-            viewModel.stop()
-            binding.stopButton.isEnabled = false
-            binding.startButton.isEnabled = true
+        binding.toggleButton.setOnClickListener {
+            if (viewModel.isRunning) {
+                viewModel.stop()
+                binding.toggleButton.text = "START"
+            } else {
+                viewModel.start()
+                binding.toggleButton.text = "STOP"
+            }
         }
 
         observeViewModel()
