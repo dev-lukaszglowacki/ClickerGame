@@ -18,6 +18,9 @@ class HomeViewModel : ViewModel() {
     private val _targetText = MutableLiveData("")
     val targetText: LiveData<String> = _targetText
 
+    private val _hitTimeText = MutableLiveData("")
+    val hitTimeText: LiveData<String> = _hitTimeText
+
     private val _scoreText = MutableLiveData("Score: 0")
     val scoreText: LiveData<String> = _scoreText
 
@@ -49,6 +52,7 @@ class HomeViewModel : ViewModel() {
         startTime = System.currentTimeMillis()
         running = true
         _resultText.value = ""
+        _hitTimeText.value = ""
         handler.post(timerRunnable)
     }
 
@@ -56,6 +60,8 @@ class HomeViewModel : ViewModel() {
         running = false
 
         val finalTime = (System.currentTimeMillis() - startTime) / 1000.0
+        _timerText.value = String.format(Locale.ROOT, "%.2f", finalTime)
+
         val diff = kotlin.math.abs(finalTime - targetTime)
 
         val points = calculatePoints(diff)
@@ -67,6 +73,7 @@ class HomeViewModel : ViewModel() {
                 .format(finalTime, diff, points)
 
         updateScore()
+        _hitTimeText.value = "The time to hit was: %.2f s".format(targetTime)
         generateTarget()
     }
 
