@@ -58,10 +58,6 @@ class HomeFragment : Fragment() {
             binding.scoreText.text = it
         }
 
-        viewModel.bestScoreText.observe(viewLifecycleOwner) {
-            binding.bestScoreText.text = it
-        }
-
         viewModel.hitTimeText.observe(viewLifecycleOwner) {
             binding.hitTimeText.text = it
         }
