@@ -24,9 +24,6 @@ class HomeViewModel : ViewModel() {
     private val _scoreText = MutableLiveData("Score: 0")
     val scoreText: LiveData<String> = _scoreText
 
-    private val _bestScoreText = MutableLiveData("Best score: 0")
-    val bestScoreText: LiveData<String> = _bestScoreText
-
     private var startTime = 0L
     private var running = false
     val isRunning: Boolean
@@ -84,7 +81,6 @@ class HomeViewModel : ViewModel() {
 
     private fun updateScore() {
         _scoreText.value = "Score: $score"
-        _bestScoreText.value = "Best score: $bestScore"
     }
 
     private fun calculatePoints(diff: Double): Int =
