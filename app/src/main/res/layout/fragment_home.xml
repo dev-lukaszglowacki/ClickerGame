@@ -10,7 +10,7 @@
         android:id="@+id/targetTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cel:"
+        android:text="@string/target"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -19,7 +19,7 @@
         android:id="@+id/timerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.00"
+        android:text="@string/_0_00"
         android:textSize="48sp"
         app:layout_constraintTop_toBottomOf="@id/targetTimeText"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
         android:id="@+id/toggleButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="START"
+        android:text="@string/start"
         app:layout_constraintTop_toBottomOf="@id/timerText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
